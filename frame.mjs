@@ -1,7 +1,8 @@
-export const frame = (() =>
+export const frame =
 {
-    function draw(time)
+    draw:function(time, canvas)
     {
-        console.log(time);
+        var context = canvas.getContext('2d');
+        console.log(context);
     }
-})();
+};

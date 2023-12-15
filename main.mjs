@@ -1,11 +1,8 @@
 import { frame } from './frame.mjs'
 
-console.log("main");
-
 function main()
 {
     var canvas = document.getElementById('screen');
-    var context = canvas.getContext('2d');
 
     var resizeCanvas = () =>
     {
@@ -20,7 +17,7 @@ function main()
 
     function draw (time)
     {
-        frame.draw(time);
+        frame.draw(time, canvas);
         requestFrame();
     };
 
@@ -29,3 +26,5 @@ function main()
 
     requestFrame();
 }
+
+main();
