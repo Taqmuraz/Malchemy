@@ -1,0 +1,1 @@
+java -Xms64M -jar "runtime/jena.jar" src/main.jena

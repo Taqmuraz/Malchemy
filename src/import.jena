@@ -1,0 +1,18 @@
+jc = javaClass =>
+{
+    .float:(jc "java.lang.Float"),
+    .int:(jc "java.lang.Integer"),
+    .bool:(jc "java.lang.Boolean"),
+    .string:(jc "java.lang.String"),
+    .runnable:(jc "java.lang.Runnable"),
+
+    .component:(jc "java.awt.Component"),
+    .frame:(jc "javax.swing.JFrame"),
+    .button:(jc "javax.swing.JButton"),
+    .panel:(jc "jena.lang.swing.CustomPanel"),
+
+    .color:(jc "java.awt.Color"),
+    .eventQueue:(jc "java.awt.EventQueue"),
+
+    .consumer:(jc "java.util.function.Consumer"),
+}

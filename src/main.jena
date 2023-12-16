@@ -1,0 +1,22 @@
+import = source("src/import.jena") =>
+import.eventQueue.invokeLater[import.runnable] () ->
+[
+    panel = import.panel.new[import.consumer] graphics ->
+    [
+        graphics.setColor[import.color](import.color.new[import.float, import.float, import.float, import.float][0, 0, 0, 0]),
+        graphics.fillRect[import.int, import.int, import.int, import.int][50, 50, 100, 100],
+    ] =>
+    width = 500 =>
+    height = 400 =>
+    form = import.frame.new[]() =>
+    [
+        panel.setSize[import.int, import.int][width, height],
+        form.setDefaultCloseOperation[import.int](import.frame.field.EXIT_ON_CLOSE),
+        form.setSize[import.int, import.int][width, height],
+        form.add[import.component] panel,
+        form.setVisible[import.bool] 1,
+
+        println("end"),
+        println(),
+    ]
+]
