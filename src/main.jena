@@ -3,29 +3,42 @@ import.eventQueue.invokeLater[import.runnable] () ->
 [
     width = 500 =>
     height = 400 =>
-    panel = import.panel.new[import.consumer] graphics ->
+    panel = import.panel.new[import.consumer] graphics -> 
         setColor = color -> graphics.setColor[import.color](import.color.new[
             import.float,
             import.float,
             import.float,
-            import.float
-        ]color) =>
+            import.float]
+            color) =>
         fillRect = graphics.fillRect[import.int, import.int, import.int, import.int] =>
-        [
-            setColor[0, 0, 0, 1],
-            fillRect[0, 0, width, height],
-            setColor[1, 0, 0, 1],
-            fillRect[50, 50, 100, 100],
-        ]
+        painter =
+        {
+            .rect:rect -> color ->
+            [
+                setColor(color),
+                print "rect : " rect ", color: " color line,
+                fillRect(rect),
+            ],
+        } =>
+        source("src/frame.jena") painter width height
     =>
     form = import.frame.new[]() =>
     [
         panel.setSize[import.int, import.int][width, height],
+        panel.setLocation[import.int, import.int][150, 0],
+        
         form.setDefaultCloseOperation[import.int](import.frame.field.EXIT_ON_CLOSE),
-        form.setSize[import.int, import.int][width, height],
-        form.add[import.component] panel,
-        form.setVisible[import.bool] 1,
+        form.setSize[import.int, import.int][width + 150, height],
 
-        println("end"),
+        button = import.button.new[]() =>
+        [
+            button.addMouseListener[import.mouseListener] { .mouseClicked: () -> form.repaint[]() },
+            button.setSize[import.int, import.int][150, 30],
+            button.setText[import.string] "Repaint",
+            form.setLayout[import.layout](),
+            form.add[import.component] button,
+            form.add[import.component] panel,
+        ],
+        form.setVisible[import.bool] 1,
     ]
 ]

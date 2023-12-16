@@ -1,0 +1,8 @@
+painter -> width -> height ->
+[
+    100.times.each () -> println box,
+    painter.rect[0, 0, width, height][0, 0, 0, 1],
+    wp = width * 0.075 =>
+    hp = height * 0.075 =>
+    100.times.each i -> painter.rect[wp * (int(i * 0.1)), hp * (i % 10), wp * 0.8, hp * 0.8][1, 0, 0, 1],
+]

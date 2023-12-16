@@ -13,6 +13,8 @@ jc = javaClass =>
 
     .color:(jc "java.awt.Color"),
     .eventQueue:(jc "java.awt.EventQueue"),
+    .mouseListener:(jc "java.awt.event.MouseListener"),
+    .layout:(jc "java.awt.LayoutManager"),
 
     .consumer:(jc "java.util.function.Consumer"),
 }
