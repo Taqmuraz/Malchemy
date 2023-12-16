@@ -1,13 +1,23 @@
 import = source("src/import.jena") =>
 import.eventQueue.invokeLater[import.runnable] () ->
 [
-    panel = import.panel.new[import.consumer] graphics ->
-    [
-        graphics.setColor[import.color](import.color.new[import.float, import.float, import.float, import.float][0, 0, 0, 0]),
-        graphics.fillRect[import.int, import.int, import.int, import.int][50, 50, 100, 100],
-    ] =>
     width = 500 =>
     height = 400 =>
+    panel = import.panel.new[import.consumer] graphics ->
+        setColor = color -> graphics.setColor[import.color](import.color.new[
+            import.float,
+            import.float,
+            import.float,
+            import.float
+        ]color) =>
+        fillRect = graphics.fillRect[import.int, import.int, import.int, import.int] =>
+        [
+            setColor[0, 0, 0, 1],
+            fillRect[0, 0, width, height],
+            setColor[1, 0, 0, 1],
+            fillRect[50, 50, 100, 100],
+        ]
+    =>
     form = import.frame.new[]() =>
     [
         panel.setSize[import.int, import.int][width, height],
@@ -17,6 +27,5 @@ import.eventQueue.invokeLater[import.runnable] () ->
         form.setVisible[import.bool] 1,
 
         println("end"),
-        println(),
     ]
 ]
